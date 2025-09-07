@@ -1,0 +1,42 @@
+Database library;
+	Tables
+	1).	users
+	
+	 desc users;
+	+------------+-----------------------+------+-------+---------+------------------+
+	| Field    		| Type                  			| Null 	| Key 	| Default 	| Extra          			|
+	+------------+-----------------------+------+-------+---------+------------------+
+	| id				| int                   			| NO   	| PRI 	| NULL    	| auto_increment |
+	| username 	| varchar(50)           		| YES		| UNI 	| NULL    	|                			|
+	| email    		| varchar(100)          		| YES  	|     		| NULL    	|                			|
+	| password 	| varchar(100)          		| YES  	|     		| NULL    	|                			|
+	| role     		| enum('admin','staff') 	| YES  	|     		| staff   	|                			|
+	+------------+-----------------------+------+-------+---------+------------------+
+	
+*******************************************************************************		
+	2).	books 
+		
+		desc books;
+	+------------+--------------+-------+----+---------+------------------+
+	| Field     		| Type         		| Null 	| Key | Default 	| Extra          			|
+	+------------+--------------+-------+----+---------+------------------+
+	| id        		| int          		| NO   	| PRI | NULL    	| auto_increment |
+	| title     		| varchar(100) 	| NO   	|     	| NULL    	|                			|
+	| author    	| varchar(100) 	| NO   	|     	| NULL    	|                			|
+	| isbn      		| varchar(20)  	| YES  	|     	| NULL    	|                			|
+	| available 	| tinyint(1)   		| YES  	|     	| 1       		|                			|
+	+------------+--------------+-------+----+---------+------------------+
+
+********************************************************************************		
+	3).	issued_books
+		
+		 desc issued_books;
+		+------------+------------+------+-------+---------+------------------+
+		| Field       	 | Type        	 | Null 	| Key 	| Default   | Extra          		|
+		+------------+------------+------+-------+---------+------------------+
+		| id          		 | int         	 | NO   	| PRI 	| NULL      | auto_increment |
+		| book_id    	 | int         	 | YES  	| MUL 	| NULL      |                			|
+		| issued_to    |varchar(50) | YES  	|     		| NULL      |                			|
+		| issue_date   | date        	 | YES 	|     		| NULL      |                			|
+		| return_date | date        	 | YES 	|     		| NULL      |                			|
+		+------------+------------+------+-------+---------+------------------+
